@@ -1,0 +1,47 @@
+.middle{
+    background-color: #00509d;
+    width: 100%;
+    height: auto;
+    /* white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-word; */
+    overflow: visible;
+    font-weight: 400;
+    font-style: italic;
+    color: white;
+    font-size: 48px;
+    letter-spacing: 0em;
+    line-height: 2;
+    text-align: left;
+    /* position: absolute; */
+}
+.unlease{
+
+width: 50%;
+height: auto;
+/* white-space: pre-wrap;
+word-wrap: break-word;
+word-break: break-word; */
+overflow: visible;
+font-weight: 400;
+font-style: normal;
+font-family: "Work Sans", "Work Sans Placeholder", sans-serif;
+color: #ffffff;
+font-size: 15px;
+letter-spacing: 0em;
+line-height: 1.5;
+text-align: left;
+/* position: absolute; */
+}
+.capture {
+  
+    overflow: visible;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Work Sans", "Work Sans Placeholder", sans-serif;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0em;
+    line-height: 1.5;
+    text-align: left;
+}
