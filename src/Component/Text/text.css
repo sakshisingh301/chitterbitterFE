@@ -45,3 +45,40 @@ text-align: left;
     line-height: 1.5;
     text-align: left;
 }
+.middleNew{
+    /* box-sizing: border-box;
+width: 100%;
+height: min-content;
+display: flex; */
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+padding: 100px 100px 100px 100px;
+background-color: #00509d;
+/* overflow: hidden; */
+align-content: center;
+flex-wrap: nowrap;
+gap: 0;
+/* position: absolute;
+border-radius: 0px 0px 0px 0px; */
+}
+.revolution{
+    height: auto;
+    overflow: visible;
+    font-weight: 400;
+    font-style: oblique;
+    font-family: fantasy;
+    color: #ffffff;
+    font-size: 2.1em;
+    /* letter-spacing: 0em; */
+    line-height: 1.5;
+    text-align: left;
+    padding-right: 0px;
+}
+.imageDiv{
+    padding-top: 3em;
+}
+.imageRow{
+    padding-left: 24em;
+    padding-top: 5em;
+}
