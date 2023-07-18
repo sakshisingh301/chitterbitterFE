@@ -1,9 +1,10 @@
 import React from 'react';
 import Home from '../Component/Home';
 import Text from '../Component/Text';
+import Router from '../Component/Router';
 
 
-// import './home.css'
+
 const Layout=()=>{
     return(
     <>
