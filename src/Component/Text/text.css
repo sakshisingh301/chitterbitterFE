@@ -82,3 +82,27 @@ border-radius: 0px 0px 0px 0px; */
     padding-left: 24em;
     padding-top: 5em;
 }
+.getStarted{
+    text-align: center;
+    color: #fdc500;
+    font-size: 25px;
+    font-family: cursive;
+    padding-top: 10px;
+    font-style: oblique;
+}
+.content1{
+    color: #fdc500;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: oblique;
+    font-family: cursive;
+    text-align: center;
+    position: relative;
+    padding-top: 10px;
+}
+.robot{
+    padding-top: 26px;
+    text-align: center;
+    display: block;
+    margin-right: auto;
+}
