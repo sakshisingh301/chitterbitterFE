@@ -1,9 +1,32 @@
 import React from 'react';
 import './text.css'
-import { Col, Row,Image  } from 'antd';
+import { Col, Row, Image, Typography, List, Avatar } from 'antd';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
+const data = [
+   {
+      title: 'Text to Text',
+      desc: 'Revamped Conversations',
+      picture: 'https://cdn-icons-png.flaticon.com/512/7613/7613950.png',
+      route: '/text'
+   },
+   {
+      title: 'Text To Image',
+      desc: 'Visual Storytelling',
+      picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNHk6OyjvBHzodt26JUWQqjVUKBfGRkgC7R5YFW1rx6dHhiZdwMse16Jef11gmVNyKKBI&usqp=CAU',
+      route: '/image',
+   },
+   {
+      title: 'Search Prompt',
+      desc: 'Search Results',
+      picture: 'https://cdn.iconscout.com/icon/free/png-256/free-search-1403342-1188283.png?f=webp',
+      route: '/searchPrompt'
+   },
+];
+
 
 const Text = () => {
    return (
@@ -34,13 +57,35 @@ const Text = () => {
             </Row>
             <Row className='robot'>
                {/* <img src='../../../chitterbitter/Apps-Like-Chai.jpg' alt="Image description" /> */}
-               <Image 
+               <Image
                   width={200}
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTbcZcLCbI6ch7X5-wtZaVrxcrD4Cg_4rMYybhrgR3tHHSkfS2EfWGyv0u4S2CWrsqnCo&usqp=CAU"
                   preview={false}
                />
-               
+
             </Row>
+
+            <div className='listOption'>
+               <List
+                  itemLayout="horizontal"
+                  dataSource={data}
+                  renderItem={(item, index) => (
+                     <List.Item
+                        actions={[
+                           <Link to={item.route}>
+                              <Typography.Text>&#187;</Typography.Text>
+                           </Link>
+                        ]}
+                     >
+                        <List.Item.Meta
+                           avatar={<Avatar src={item.picture} />}
+                           title={item.title}
+                           description={item.desc}
+                        />
+                     </List.Item>
+                  )}
+               />
+            </div>
 
          </div>
 
