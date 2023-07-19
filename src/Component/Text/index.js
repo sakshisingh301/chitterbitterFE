@@ -1,10 +1,14 @@
 import React from 'react';
 import './text.css'
-import { Col, Row, Image, Typography, List, Avatar } from 'antd';
+import { Col, Row, Image, Typography, List, Avatar, Carousel } from 'antd';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+
+const contentStyle = {
+   width: '100%', height: '450px', objectFit: 'cover'
+};
 
 const data = [
    {
@@ -85,6 +89,19 @@ const Text = () => {
                      </List.Item>
                   )}
                />
+            </div>
+            <div>
+               <Carousel autoplay={true}>
+                  <div>
+                     <img style={contentStyle} src="https://static.scientificamerican.com/sciam/cache/file/1B052E70-458D-4084-A9CA4CE2E9B65C07_source.jpg" alt="Slide 1" />
+                  </div>
+                  <div>
+                     <img style={contentStyle} src="https://media.istockphoto.com/id/1140559408/photo/blockchain-artificial-intelligence.webp?b=1&s=170667a&w=0&k=20&c=dhMvSYqCmMmbX5AFchuXSgQFoxv0CzTTVkLSjY-ohzA=" alt="Slide 2" />
+                  </div>
+                  <div>
+                     <img style={contentStyle} src="https://media.istockphoto.com/id/1423605865/photo/india-at-night-viewed-from-space-with-city-lights-showing-activity-in-indian-cities-delhi.webp?b=1&s=170667a&w=0&k=20&c=9qLJlUTDiRqDq9aOSgGSGDJD9aA2j2rMJ4Tb1Can4i4=" alt="Slide 3" />
+                  </div>
+               </Carousel>
             </div>
 
          </div>
