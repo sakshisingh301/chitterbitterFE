@@ -109,3 +109,12 @@ border-radius: 0px 0px 0px 0px; */
 .listOption{
     margin-top: 2em;
 }
+.footer {
+    justify-content: center;
+    padding-top: 10em;
+}
+.last {
+    text-align: center;
+    padding-top: 1.5em;
+    color: aliceblue;
+}

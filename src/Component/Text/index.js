@@ -5,6 +5,9 @@ import { Col, Row, Image, Typography, List, Avatar, Carousel } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faTwitch } from '@fortawesome/free-brands-svg-icons';
 
 const contentStyle = {
    width: '100%', height: '450px', objectFit: 'cover'
@@ -103,6 +106,23 @@ const Text = () => {
                   </div>
                </Carousel>
             </div>
+            <Row className="footer">
+
+               <div>
+                  <FontAwesomeIcon icon={faInstagram} spin size="2xl" style={{ color: "#fdc500" }} />
+               </div>
+
+               <div>
+                  <FontAwesomeIcon icon={faTwitter} spin size="2xl" style={{ color: "#fdc500" }} />
+               </div>
+
+               <div>
+                  <FontAwesomeIcon icon={faTwitch} spin size="2xl" style={{ color: "#fdc500" }} />
+               </div>
+
+            </Row>
+            <div className='last'>© Chitter-Bitter 2023 – Unleashing Creativity</div>
+
 
          </div>
 
