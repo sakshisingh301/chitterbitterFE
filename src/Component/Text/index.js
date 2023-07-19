@@ -12,6 +12,13 @@ import { faTwitch } from '@fortawesome/free-brands-svg-icons';
 const contentStyle = {
    width: '100%', height: '450px', objectFit: 'cover'
 };
+const getRowClass = (index) => {
+
+   console.log('index', index)
+
+   return `listRow-${index}`;
+
+};
 
 const data = [
    {
@@ -78,9 +85,10 @@ const Text = () => {
                   dataSource={data}
                   renderItem={(item, index) => (
                      <List.Item
+                     className={getRowClass(index)}
                         actions={[
                            <Link to={item.route}>
-                              <Typography.Text>&#187;</Typography.Text>
+                              <Typography.Text style={{ fontSize: '2rem' }}>&#187;</Typography.Text>
                            </Link>
                         ]}
                      >
@@ -93,7 +101,7 @@ const Text = () => {
                   )}
                />
             </div>
-            <div>
+            <div style={{ marginTop : '4em' }}>
                <Carousel autoplay={true}>
                   <div>
                      <img style={contentStyle} src="https://static.scientificamerican.com/sciam/cache/file/1B052E70-458D-4084-A9CA4CE2E9B65C07_source.jpg" alt="Slide 1" />
@@ -108,11 +116,11 @@ const Text = () => {
             </div>
             <Row className="footer">
 
-               <div>
+               <div style={{marginRight:'2em'}}>
                   <FontAwesomeIcon icon={faInstagram} spin size="2xl" style={{ color: "#fdc500" }} />
                </div>
 
-               <div>
+               <div style={{marginRight:'2em'}}>
                   <FontAwesomeIcon icon={faTwitter} spin size="2xl" style={{ color: "#fdc500" }} />
                </div>
 
@@ -122,9 +130,8 @@ const Text = () => {
 
             </Row>
             <div className='last'>© Chitter-Bitter 2023 – Unleashing Creativity</div>
-
-
          </div>
+         
 
       </>
 
