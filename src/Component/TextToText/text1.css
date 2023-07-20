@@ -31,3 +31,7 @@
     resize: none;
     height: 4em;
 }
+.breadcrump{
+    clear: left;
+    margin-left: 10px;
+}

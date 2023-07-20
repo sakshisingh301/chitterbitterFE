@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Form, Input, message, Space } from 'antd';
 import './text1.css'
 import Header from '../Header';
+import Bread from '../BreadCrump';
 const inputStyle = {
   background: '#C8B1E4', // Change the background color here
   fontFamily: 'Arial, sans-serif', // Change the font family here
@@ -13,6 +14,9 @@ const TextToText = () => {
     <div>
       <div className='head'>
         <Header />
+      </div>
+      <div className='breadcrump'>
+        <Bread/>
       </div>
       <div className='border'>
         <RenderForm />
