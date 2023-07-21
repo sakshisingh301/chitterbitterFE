@@ -3,9 +3,11 @@ import { Button, Form, Input, message, Space } from 'antd';
 import './text1.css'
 import Header from '../Header';
 import Bread from '../BreadCrump';
+import TextArea from 'antd/es/input/TextArea';
 const inputStyle = {
   background: '#C8B1E4', // Change the background color here
-  fontFamily: 'Arial, sans-serif', // Change the font family here
+  fontFamily: 'Arial, sans-serif',
+  marginRight: '57em' // Change the font family here
   // Add any other styles you want to apply to the input placeholder
 };
 
@@ -18,6 +20,8 @@ const TextToText = () => {
       <div className='breadcrump'>
         <Bread/>
       </div>
+      <div className='heading'> Search prompt</div>
+      <div className='heading2'>Describe your product/requirements under the ‘use case’ section. Be as precise as possible to ensure that an accurate prompt can be generated to match your needs.</div>
       <div className='border'>
         <RenderForm />
       </div>
@@ -70,7 +74,7 @@ const RenderForm = () => {
           },
         ]}
       >
-        <Input placeholder="Enter your use case." style={inputStyle} />
+        <TextArea rows={5} placeholder="Enter your use case." style={inputStyle} />
       </Form.Item>
       <Form.Item>
         <Space>

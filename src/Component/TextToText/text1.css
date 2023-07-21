@@ -5,7 +5,7 @@
     border: 5px solid rgba(0, 0, 0, 0.88);;
     border-radius: 1em;
     background-color: #532b88;
-    margin-top: 200px;
+    margin-top: 74px;
 }
 /* .ant-form-item-required {
     font-style: oblique;
@@ -34,4 +34,18 @@
 .breadcrump{
     clear: left;
     margin-left: 10px;
+}
+.heading{
+  margin-top: 1.5em;
+  color: orangered;
+  font-style: oblique;
+  font-weight: bold;
+  font-size: 30px;
+}
+.heading2{
+  margin-top: 1.5em;
+    font-style: italic;
+    color: rgb(105 224 22 / 93%);
+    font-weight: 600;
+    font-size: 22px;
 }
