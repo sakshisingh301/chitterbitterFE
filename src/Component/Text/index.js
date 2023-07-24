@@ -45,7 +45,7 @@ const data = [
 const Text = () => {
    return (
       <>
-
+   
          <div className="middleNew">
             <Row>
                <div className="">
