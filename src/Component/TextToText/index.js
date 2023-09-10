@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Button, Form, message, Space } from 'antd';
+import { Button, Form, message, Space, Spin } from 'antd';
 import './text1.css';
 import Header from '../Header';
 import Bread from '../BreadCrump';
 import TextArea from 'antd/es/input/TextArea';
 import { promptsService } from '../../services/promptGenerationService';
 import { useNavigate } from 'react-router-dom';
+
+
+
+
 
 const inputStyle = {
   background: '#C8B1E4',
@@ -16,10 +20,13 @@ const inputStyle = {
 const TextToText = () => {
   const [responseData, setResponseData] = useState(null);
   const [isPromptGenerated, setIsPromptGenerated] = useState(false);
+  const [formData, setFormData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchDataFromService = async () => {
+
+  const fetchDataFromService = async (event) => {
     try {
-      const response = await promptsService();
+      const response = await promptsService(event);
       if (response.status === 200) return response.data;
     } catch (error) {
       throw error;
@@ -31,10 +38,16 @@ const TextToText = () => {
     const navigate = useNavigate();
 
     const onFinish = async (event) => {
-      let result = await fetchDataFromService();
+      setIsLoading(true);
+      console.log(event.UseCase);
+      let result = await fetchDataFromService(event);
       setIsPromptGenerated(true);
+      setIsLoading(false);
       setResponseData(result.prompt);
+      setFormData(result.prompt);
       message.success('Prompt Generated Successfully !!');
+      
+
     };
 
     const onFinishFailed = () => {
@@ -96,13 +109,21 @@ const TextToText = () => {
       </div>
       <div className='heading'> Search prompt</div>
       <div className='heading2'>Describe your product/requirements under the ‘use case’ section. Be as precise as possible to ensure that an accurate prompt can be generated to match your needs.</div>
+      <Spin style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}tip="Loading" size="large" spinning={isLoading}>
+        <div className="content" />
+      </Spin>
       <div className='border'>
         <RenderForm />
       </div>
       {isPromptGenerated && (
-        <div>
+        <div className='promptResult'>
+        <h2 style={{marginLeft : '10px', color : 'aliceblue'}}>Prompt:</h2>
+        <hr className='hrCSS'/>
+        <br/>
+        <div style={{marginLeft : '10px', color : 'aliceblue',marginBottom: '10px'}}>
           {responseData}
         </div>
+      </div>
       )}
     </div>
   );
