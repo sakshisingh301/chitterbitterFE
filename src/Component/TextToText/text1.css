@@ -34,6 +34,7 @@
 .breadcrump{
     clear: left;
     margin-left: 10px;
+    color: antiquewhite;
 }
 .heading{
   margin-top: 1.5em;
@@ -45,7 +46,7 @@
 .heading2{
   margin-top: 1.5em;
     font-style: italic;
-    color: rgb(105 224 22 / 93%);
+    color: whitesmoke;
     font-weight: 600;
     font-size: 22px;
 }
@@ -63,4 +64,13 @@
   width: 98%;
   border: 1px solid rgba(168, 168, 168, 0.3);
   margin-top: 1.5em;
+}
+.ant-breadcrumb .ant-breadcrumb-link{
+  color: antiquewhite;
+}
+.ant-breadcrumb .ant-breadcrumb-separator{
+  color: antiquewhite;
+}
+.ant-breadcrumb a:hover {
+  color: antiquewhite;
 }

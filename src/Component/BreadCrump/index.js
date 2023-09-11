@@ -1,5 +1,6 @@
 import React from 'react';
 import { Breadcrumb } from 'antd';
+import './bread.css'
 
 const Bread = () => (
   <Breadcrumb

@@ -7,9 +7,13 @@ import TextArea from 'antd/es/input/TextArea';
 import { promptsService } from '../../services/promptGenerationService';
 import { useNavigate } from 'react-router-dom';
 
-
-
-
+const bgImgStyle={
+  backgroundImage:
+"url('https://media.istockphoto.com/id/1423605865/photo/india-at-night-viewed-from-space-with-city-lights-showing-activity-in-indian-cities-delhi.webp?b=1&s=170667a&w=0&k=20&c=9qLJlUTDiRqDq9aOSgGSGDJD9aA2j2rMJ4Tb1Can4i4=')",
+  height:'100%',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+};
 
 const inputStyle = {
   background: '#C8B1E4',
@@ -100,7 +104,7 @@ const TextToText = () => {
   };
 
   return (
-    <div>
+    <div style={bgImgStyle}>
       <div className='head'>
         <Header />
       </div>

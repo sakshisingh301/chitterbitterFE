@@ -1,10 +1,19 @@
 
 import React, { useState } from 'react';
 import Header from '../Header';
-import { Button, Form, message, Space } from 'antd';
+import { Button, Form, message, Space, Spin } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import { useNavigate } from 'react-router-dom';
 import { imageGeneration } from '../../services/promptGenerationService';
+import Bread from '../BreadCrump';
+
+const bgImgStyle={
+    backgroundImage:
+  "url('https://media.istockphoto.com/id/1423605865/photo/india-at-night-viewed-from-space-with-city-lights-showing-activity-in-indian-cities-delhi.webp?b=1&s=170667a&w=0&k=20&c=9qLJlUTDiRqDq9aOSgGSGDJD9aA2j2rMJ4Tb1Can4i4=')",
+    height:'100%',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  };
 
 
 const inputStyle = {
@@ -23,6 +32,8 @@ const inputStyle = {
 const Image=()=>{
     const [isImageGenerated, setIsImageGenerated] = useState(false);
 const [responseData, setResponseData] = useState(null);
+const [isLoading, setIsLoading] = useState(false);
+
     const RenderForm = () => {
         const [form] = Form.useForm();
         const navigate = useNavigate();
@@ -30,9 +41,11 @@ const [responseData, setResponseData] = useState(null);
         const onFinish = async (event) => {
           
       console.log(event);
+      setIsLoading(true);
       let result = await fetchDataFromService(event);
       setIsImageGenerated(true);
       setResponseData(result.imageUrl);
+      setIsLoading(false);
       
          
          
@@ -89,12 +102,20 @@ const [responseData, setResponseData] = useState(null);
           </Form>
         );
       };
-    return(<div>
+    return(
+        <div style={bgImgStyle}>
+    <div>
         <div className='head'>
           <Header />
         </div>
+        <div className='breadcrump'>
+        <Bread />
+      </div>
         <div className='heading'> Text to Image generator</div>
         <div className='heading2'>Simply enter your text and watch the magic happen—our gizmo turns words into beautiful images!</div>
+        <Spin style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}tip="Loading" size="large" spinning={isLoading}>
+        <div className="content" />
+      </Spin>
         <div className='border'>
         <RenderForm />
       </div>
@@ -104,10 +125,13 @@ const [responseData, setResponseData] = useState(null);
         <hr className='hrCSS'/>
         <br/>
         <div style={{marginLeft : '10px', color : 'aliceblue',marginBottom: '10px'}}>
-          {responseData}
+        {/* <img src={responseData} alt="Generated Image" /> */}
+        <iframe src={responseData} height="200" width="300" title="Generated image"></iframe>
+          
         </div>
       </div>
       )}
+      </div>
         </div>)
 
 }
