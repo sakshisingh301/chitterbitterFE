@@ -6,6 +6,7 @@ import Bread from '../BreadCrump';
 import TextArea from 'antd/es/input/TextArea';
 import { promptsService } from '../../services/promptGenerationService';
 import { useNavigate } from 'react-router-dom';
+import Title from 'antd/es/skeleton/Title';
 
 const bgImgStyle={
   backgroundImage:

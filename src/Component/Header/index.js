@@ -30,7 +30,9 @@ const Header = () => {
                 <FontAwesomeIcon icon={faSignOutAlt} size="xl" />
             </div>
             <div style={{ float: 'right', marginTop: '23px',marginRight: '15px' }}>
-                <FontAwesomeIcon icon={faClockRotateLeft} size="xl" />
+            <Link to="/history">
+                <FontAwesomeIcon icon={faClockRotateLeft} size="xl" style={{ color: 'white' }}/>
+                </Link>
                 </div>
                 <div style={{ float: 'right', marginTop: '23px' , marginRight: '15px'}}>
            <FontAwesomeIcon icon={faUser} size='xl'/>
