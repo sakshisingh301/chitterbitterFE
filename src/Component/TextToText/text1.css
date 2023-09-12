@@ -1,11 +1,18 @@
 .border {
-    width: 100%;
+    /* width: 100%;
     display: flex;
     justify-content: center;
     border: 5px solid rgba(0, 0, 0, 0.88);;
     border-radius: 1em;
     background-color: #532b88;
-    margin-top: 74px;
+    margin-top: 74px; */
+        display: flex;
+        margin: 10em;
+        justify-content: center;
+        border: 3px solid rgba(0, 0, 0, 0.6);
+        border-radius: 1em;
+        margin-top: 74px;
+        background-color: #2c4e6a;
 }
 /* .ant-form-item-required {
     font-style: oblique;
@@ -19,9 +26,21 @@
   }
 
   .buttonGen{
-    background-color: rgb(19, 97, 0);
+    background-color: #253a78;
     color: rgb(255, 255, 255);
     font-size: 15px;
+    border-color: #bccaff;
+  }
+  .cancelBtn{
+    background-color: #253a78;
+    border-color: #bccaff;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+    color: rgb(255, 255, 255);
+  }
+  .textArea{
+    background: rgb(44 140 138);
+    font-family: Arial, sans-serif;
+    margin-right: 57em;
   }
   .head{
     background-color: lightseagreen;

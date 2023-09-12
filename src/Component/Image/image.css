@@ -1,0 +1,11 @@
+.textArea{
+    background: rgb(44 140 138);
+    font-family: Arial, sans-serif;
+    margin-right: 57em;
+  }
+  .cancelBtn{
+    background-color: #253a78;
+    border-color: #bccaff;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+    color: rgb(255, 255, 255);
+  }

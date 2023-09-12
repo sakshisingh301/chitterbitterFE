@@ -6,21 +6,19 @@ import Bread from '../BreadCrump';
 import TextArea from 'antd/es/input/TextArea';
 import { promptsService } from '../../services/promptGenerationService';
 import { useNavigate } from 'react-router-dom';
-import Title from 'antd/es/skeleton/Title';
 
 const bgImgStyle={
   backgroundImage:
 "url('https://media.istockphoto.com/id/1423605865/photo/india-at-night-viewed-from-space-with-city-lights-showing-activity-in-indian-cities-delhi.webp?b=1&s=170667a&w=0&k=20&c=9qLJlUTDiRqDq9aOSgGSGDJD9aA2j2rMJ4Tb1Can4i4=')",
-  height:'100%',
+  height:'50em',
   backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
 };
 
-const inputStyle = {
-  background: '#C8B1E4',
-  fontFamily: 'Arial, sans-serif',
-  marginRight: '57em',
-};
+// const inputStyle = {
+//   background: rgb(44 140 138);
+//     font-family: Arial, sans-serif;
+//     margin-right: 57em;
+// };
 
 const TextToText = () => {
   const [responseData, setResponseData] = useState(null);
@@ -88,14 +86,14 @@ const TextToText = () => {
             },
           ]}
         >
-          <TextArea rows={5} placeholder="Enter your use case." style={inputStyle} />
+          <TextArea rows={5} className='textArea' placeholder="Enter your use case." />
         </Form.Item>
         <Form.Item>
           <Space>
             <Button className="buttonGen" type='primary' htmlType="submit">
               Generate Prompt
             </Button>
-            <Button htmlType="button" onClick={onCancel}>
+            <Button className='cancelBtn' htmlType="button" onClick={onCancel}>
               Cancel
             </Button>
           </Space>

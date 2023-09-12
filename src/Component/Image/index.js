@@ -10,17 +10,10 @@ import Bread from '../BreadCrump';
 const bgImgStyle={
     backgroundImage:
   "url('https://media.istockphoto.com/id/1423605865/photo/india-at-night-viewed-from-space-with-city-lights-showing-activity-in-indian-cities-delhi.webp?b=1&s=170667a&w=0&k=20&c=9qLJlUTDiRqDq9aOSgGSGDJD9aA2j2rMJ4Tb1Can4i4=')",
-    height:'100%',
+    height:'50em',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
   };
 
-
-const inputStyle = {
-    background: '#C8B1E4',
-    fontFamily: 'Arial, sans-serif',
-    marginRight: '57em',
-  };
   const fetchDataFromService = async (event) => {
     try {
       const response = await imageGeneration(event);
@@ -87,14 +80,15 @@ const [isLoading, setIsLoading] = useState(false);
                 },
               ]}
             >
-              <TextArea rows={5} placeholder="Enter your prompt for image generation." style={inputStyle} />
+              <TextArea rows={5} className='textArea' placeholder="Enter your prompt for image generation." />
             </Form.Item>
             <Form.Item>
               <Space>
+                
                 <Button className="buttonGen" type='primary' htmlType="submit">
                   Generate image
                 </Button>
-                <Button htmlType="button" onClick={onCancel}>
+                <Button htmlType="button" className='cancelBtn' onClick={onCancel}>
                   Cancel
                 </Button>
               </Space>
@@ -103,7 +97,7 @@ const [isLoading, setIsLoading] = useState(false);
         );
       };
     return(
-        <div style={bgImgStyle}>
+        <div className='bgImage' style={bgImgStyle}>
     <div>
         <div className='head'>
           <Header />
