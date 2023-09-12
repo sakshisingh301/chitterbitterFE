@@ -31,6 +31,12 @@
     font-size: 15px;
     border-color: #bccaff;
   }
+  .copyPromptBtn{
+    background-color: #253a78;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    border-color: #bccaff;
+  }
   .cancelBtn{
     background-color: #253a78;
     border-color: #bccaff;
@@ -69,15 +75,21 @@
     font-weight: 600;
     font-size: 22px;
 }
+.promptResultMain{
+  margin-right: 10em;
+    margin-top: -5em;
+    margin-left: 10em;
+}
 
 .promptResult {
-  width: 100%;
+  /* width: 100%; */
   /* display: flex;
   justify-content: center; */
-  border: 3px solid rgba(0, 0, 0, 0.88);;
+  border: 3px solid rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  background-color: darkgreen;
-  margin-top: 40px;
+  background-color: #2c4e6a;
+  /* margin: 10em; */
+  padding: 3em;
 }
 .hrCSS{
   width: 98%;
@@ -92,4 +104,13 @@
 }
 .ant-breadcrumb a:hover {
   color: antiquewhite;
+}
+.skeletonCss{
+  margin-right: 10em;
+    margin-top: -5em;
+    margin-left: 10em;
+    border: 3px solid rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    background-color: #2c4e6a;
+    padding: 3em;
 }

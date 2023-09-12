@@ -6,6 +6,8 @@ import TextArea from 'antd/es/input/TextArea';
 import { useNavigate } from 'react-router-dom';
 import { imageGeneration } from '../../services/promptGenerationService';
 import Bread from '../BreadCrump';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const bgImgStyle={
     backgroundImage:
@@ -89,7 +91,8 @@ const [isLoading, setIsLoading] = useState(false);
                   Generate image
                 </Button>
                 <Button htmlType="button" className='cancelBtn' onClick={onCancel}>
-                  Cancel
+                <FontAwesomeIcon icon={faXmark} size='xl'/>
+                  &nbsp;Cancel
                 </Button>
               </Space>
             </Form.Item>
@@ -119,8 +122,8 @@ const [isLoading, setIsLoading] = useState(false);
         <hr className='hrCSS'/>
         <br/>
         <div style={{marginLeft : '10px', color : 'aliceblue',marginBottom: '10px'}}>
-        {/* <img src={responseData} alt="Generated Image" /> */}
-        <iframe src={responseData} height="200" width="300" title="Generated image"></iframe>
+        <img src={responseData} alt="Generated Image" />
+        {/* <iframe src={responseData} height="200" width="300" title="Generated image"></iframe> */}
           
         </div>
       </div>

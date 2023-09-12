@@ -9,3 +9,12 @@
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
     color: rgb(255, 255, 255);
   }
+  .promptResult{display: flex;
+        margin: 10em;
+        justify-content: center;
+        border: 3px solid rgba(0, 0, 0, 0.6);
+        border-radius: 1em;
+        margin-top: 74px;
+        display: flex;
+        
+  }
