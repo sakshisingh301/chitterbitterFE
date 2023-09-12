@@ -37,7 +37,12 @@ const TextToText = () => {
 
   const scrollToDiv = () => {
     if (myDivRef.current) {
-      myDivRef.current.scrollIntoView({ behavior: 'smooth' });
+      const rect = myDivRef.current.getBoundingClientRect();
+    window.scrollTo({
+      top: window.scrollY + rect.top,
+      behavior: 'smooth',
+    });
+      // myDivRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -155,6 +160,7 @@ const TextToText = () => {
                 {responseData}
               </div>
               <div style={{float : 'right'}}>
+              <Button className='copyPromptBtn' >Search Generated Prompt</Button> &nbsp;
               <CopyToClipboard text={responseData} onCopy={handleCopy}>
               <Button className='copyPromptBtn' >
               <FontAwesomeIcon icon={faCopy} size='lg'/>
