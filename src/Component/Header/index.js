@@ -18,9 +18,9 @@ const Header = () => {
             }}>ChitterBitter</div>
             <div style={{ fontSize: '20px', float: 'left', margin: '25px' ,color:'antiquewhite'}}> <Link to="/">Home</Link></div>
 
-            <div style={{ fontSize: '20px', float: 'left', marginTop: '25px' }}><Link to="/text">Text-To-Text</Link></div>
+            <div style={{ fontSize: '20px', float: 'left', marginTop: '25px' }}><Link to="/Text-To-Text">Text-To-Text</Link></div>
 
-            <div style={{ fontSize: '20px', float: 'left', margin: '25px' }}><Link to="/image">Text-To-Image</Link></div>
+            <div style={{ fontSize: '20px', float: 'left', margin: '25px' }}><Link to="/Text-To-Image">Text-To-Image</Link></div>
 
             <div style={{ fontSize: '20px', float: 'left', marginTop: '25px' }}><Link to="/searchPrompt">Search Prompt</Link></div>
            

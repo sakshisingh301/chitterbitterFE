@@ -8,13 +8,8 @@ const Bread = () => {
 
   const pathParts = location.pathname.split('/').filter(Boolean);
 
-  // Define a style object for the breadcrumb
-  const breadcrumbStyle = {
-    color: 'white', // Set the font color to white
-  };
-
   return (
-    <Breadcrumb separator=">" style={breadcrumbStyle}>
+    <Breadcrumb separator=">" >
       <Breadcrumb.Item key="home">
         <Link to="/">Home</Link>
       </Breadcrumb.Item>

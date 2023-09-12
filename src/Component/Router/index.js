@@ -14,8 +14,8 @@ const Router = () => {
    
     <Routes>
     <Route path="/" element={<Layout/>}/>
-          <Route path="/text" element={<TextToText/>}/>
-          <Route path="/image" element={<Image/>}/>
+          <Route path="/Text-To-Text" element={<TextToText/>}/>
+          <Route path="/Text-To-Image" element={<Image/>}/>
         
       </Routes>
       

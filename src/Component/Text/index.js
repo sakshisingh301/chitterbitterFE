@@ -25,13 +25,13 @@ const data = [
       title: 'Text to Text',
       desc: 'Revamped Conversations',
       picture: 'https://cdn-icons-png.flaticon.com/512/7613/7613950.png',
-      route: '/text'
+      route: '/Text-To-Text'
    },
    {
       title: 'Text To Image',
       desc: 'Visual Storytelling',
       picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNHk6OyjvBHzodt26JUWQqjVUKBfGRkgC7R5YFW1rx6dHhiZdwMse16Jef11gmVNyKKBI&usqp=CAU',
-      route: '/image',
+      route: '/Text-To-Image',
    },
    {
       title: 'Search Prompt',
