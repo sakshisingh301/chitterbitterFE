@@ -1,0 +1,44 @@
+.headHistory {
+    background-color: lightseagreen;
+    width: 100%;
+    color: whitesmoke;
+    resize: none;
+    height: 4em;
+}
+
+.breadcrump {
+    clear: left;
+    margin-left: 10px;
+    color: white;
+}
+
+.myHistory {
+    margin: 1.5em;
+    color: antiquewhite;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.borderHistory {
+    display: flex;
+    margin: 2em;
+    justify-content: center;
+    border: 3px solid rgba(0, 0, 0, 0.6);
+    border-radius: 1em;
+    margin-top: -10px;
+    background-color: #36678f;
+}
+
+.ant-table-wrapper {
+    width: 100%;
+    height: 100%;
+}
+.custom-table .ant-table-row {
+    background-color: #36678f;
+    color: antiquewhite;
+  }
+  .custom-table .ant-table-row:hover {
+    background-color: #1e3243; 
+    color: #1e3243;
+}

@@ -30,7 +30,22 @@ export const imageGeneration = async (event) => {
     const requestBody = {
    
       userId: "6437ee95d90f4e73c32fa281",
-     prompt:"cat"
+     prompt: event.Prompt
+    };
+    const response = await axios.post(apiUrl , requestBody);
+    return response;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const historyRetrieval = async (event) => {
+ 
+  try {
+    const apiUrl = 'http://localhost:8080/history/getByUserId';
+    const requestBody = {
+   
+      userId: "6437ee95d90f4e73c32fa281",
     };
     const response = await axios.post(apiUrl , requestBody);
     return response;

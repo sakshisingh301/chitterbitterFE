@@ -14,7 +14,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 const bgImgStyle = {
   backgroundImage:
     "url('https://media.istockphoto.com/id/1423605865/photo/india-at-night-viewed-from-space-with-city-lights-showing-activity-in-indian-cities-delhi.webp?b=1&s=170667a&w=0&k=20&c=9qLJlUTDiRqDq9aOSgGSGDJD9aA2j2rMJ4Tb1Can4i4=')",
-  minHeight: '100vh', 
+  minHeight: '100vh',
   backgroundSize: 'cover',
   backgroundAttachment: 'fixed',
 };
@@ -38,10 +38,10 @@ const TextToText = () => {
   const scrollToDiv = () => {
     if (myDivRef.current) {
       const rect = myDivRef.current.getBoundingClientRect();
-    window.scrollTo({
-      top: window.scrollY + rect.top,
-      behavior: 'smooth',
-    });
+      window.scrollTo({
+        top: window.scrollY + rect.top,
+        behavior: 'smooth',
+      });
       // myDivRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -96,7 +96,7 @@ const TextToText = () => {
       >
         <Form.Item
           name="UseCase"
-          label={<span className='labelStyle'>Use-Case</span>}
+          label={<span className='labelStyleText'>Use-Case</span>}
           rules={[
             {
               required: true,
@@ -111,14 +111,14 @@ const TextToText = () => {
             },
           ]}
         >
-          <TextArea rows={5} className='textArea' placeholder="Enter your use case." />
+          <TextArea rows={5} className='textAreaText' placeholder="Enter your use case." />
         </Form.Item>
         <Form.Item>
           <Space>
-            <Button className="buttonGen" type='primary' htmlType="submit" onClick={scrollToDiv}>
+            <Button className="buttonGenText" type='primary' htmlType="submit" onClick={scrollToDiv}>
               Generate Prompt
             </Button>
-            <Button className='cancelBtn' htmlType="button" onClick={onCancel}>
+            <Button className='cancelBtnText' htmlType="button" onClick={onCancel}>
               <FontAwesomeIcon icon={faXmark} size='xl' />
               &nbsp;Cancel
             </Button>
@@ -129,44 +129,44 @@ const TextToText = () => {
   };
 
   return (
-    <div style={{minHeight : '100vh'}}>
+    <div style={{ minHeight: '100vh' }}>
       <div style={bgImgStyle}>
-        <div className='head'>
+        <div className='headText'>
           <Header />
         </div>
         <div className='breadcrump'>
           <Bread />
         </div>
-        <div className='heading'> Search prompt</div>
-        <div className='heading2'>Describe your product/requirements under the ‘use case’ section. Be as precise as possible to ensure that an accurate prompt can be generated to match your needs.</div>
+        <div className='headingText'> Search prompt</div>
+        <div className='heading2Text'>Describe your product/requirements under the ‘use case’ section. Be as precise as possible to ensure that an accurate prompt can be generated to match your needs.</div>
         {/* <Spin style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }} tip="Loading" size="large" spinning={isLoading}>
           <div className="content" />
         </Spin> */}
-        <div className='border' ref={myDivRef}>
+        <div className='borderText' ref={myDivRef}>
           <RenderForm />
         </div>
-        {isLoading && (<div className='skeletonCss'>
-        <Skeleton loading={isLoading} active avatar>
-            </Skeleton>
+        {isLoading && (<div className='skeletonCssText'>
+          <Skeleton loading={isLoading} active avatar>
+          </Skeleton>
         </div>
         )}
         {isPromptGenerated && !isLoading && (
-          <div className='promptResultMain'>
-            <div className='promptResult'>
+          <div className='promptResultMainText'>
+            <div className='promptResultText'>
               <h2 style={{ marginLeft: '10px', color: 'aliceblue' }}>Prompt:</h2>
-              <hr className='hrCSS' />
+              <hr className='hrCSSText' />
               <br />
               <div style={{ marginLeft: '10px', color: 'aliceblue', marginBottom: '10px' }}>
                 {responseData}
               </div>
-              <div style={{float : 'right'}}>
-              <Button className='copyPromptBtn' >Search Generated Prompt</Button> &nbsp;
-              <CopyToClipboard text={responseData} onCopy={handleCopy}>
-              <Button className='copyPromptBtn' >
-              <FontAwesomeIcon icon={faCopy} size='lg'/>
-                &nbsp;Copy Prompt</Button>
-            </CopyToClipboard>
-            </div>
+              <div style={{ float: 'right' }}>
+                <Button className='copyPromptBtnText' >Search Generated Prompt</Button> &nbsp;
+                <CopyToClipboard text={responseData} onCopy={handleCopy}>
+                  <Button className='copyPromptBtnText' >
+                    <FontAwesomeIcon icon={faCopy} size='lg' />
+                    &nbsp;Copy Prompt</Button>
+                </CopyToClipboard>
+              </div>
             </div>
           </div>
         )}
