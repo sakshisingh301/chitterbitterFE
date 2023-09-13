@@ -30,7 +30,7 @@ export const imageGeneration = async (event) => {
     const requestBody = {
    
       userId: "6437ee95d90f4e73c32fa281",
-     prompt:"cat"
+     prompt:event.Prompt
     };
     const response = await axios.post(apiUrl , requestBody);
     return response;

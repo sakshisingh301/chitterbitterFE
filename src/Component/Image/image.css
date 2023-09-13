@@ -27,3 +27,9 @@
       background-color: #2c4e6a;
       padding: 3em;
   }
+  .imageBtn{
+    background-color: #253a78;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    border-color: #bccaff;
+  }
