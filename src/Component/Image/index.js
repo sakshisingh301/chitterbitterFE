@@ -121,21 +121,22 @@ const Image = () => {
         {isImageGenerated && (
           <div className='promptResultImage'>
             <h2 style={{ marginLeft: '10px', color: 'aliceblue' }}>Image:</h2>
-            <hr className='hrCSSImage' />
+            <hr className='hrCSS' />
             <br />
             <div style={{ marginLeft: '10px', color: 'aliceblue', marginBottom: '10px' }}>
               Image summary
-            </div>
-            <div>
-              <Button type='primary'>
-                View Image
-              </Button> &nbsp;
-              <Button htmlType="button" >
-                <FontAwesomeIcon icon={faDownload} size='xl' />
-                &nbsp;Download Image
-              </Button>
+              </div>
+              <div>
+            <Button  type='primary'>
+              View Image
+            </Button> &nbsp;
+            <Button htmlType="button" >
+              <FontAwesomeIcon icon={faDownload} size='xl' />
+              &nbsp;Download Image
+            </Button>
               {/* <img src={responseData} alt="Generated Image" /> */}
               {/* <iframe src={responseData} height="200" width="300" title="Generated image"></iframe> */}
+
             </div>
           </div>
         )}
