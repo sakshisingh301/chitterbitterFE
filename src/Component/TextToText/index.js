@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Button, Form, message, Space, Spin, Skeleton } from 'antd';
+import { Button, Form, message, Space, Select, Skeleton } from 'antd';
 import './text1.css';
 import Header from '../Header';
 import Bread from '../BreadCrump';
@@ -10,6 +10,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
 const bgImgStyle = {
   backgroundImage:
@@ -34,6 +35,12 @@ const TextToText = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const myDivRef = useRef(null);
+  const [lang, setLang] = useState("English")
+
+  const handleChange = (value) => {
+    setLang(value)
+    console.log(`selected ${value}`);
+  };
 
   const scrollToDiv = () => {
     if (myDivRef.current) {
@@ -46,6 +53,7 @@ const TextToText = () => {
     }
   };
 
+
   const handleCopy = () => {
     setCopied(true);
     message.success('Prompt copied to clipboard');
@@ -54,7 +62,7 @@ const TextToText = () => {
 
   const fetchDataFromService = async (event) => {
     try {
-      const response = await promptsService(event);
+      const response = await promptsService(event, lang);
       if (response.status === 200) return response.data;
     } catch (error) {
       throw error;
@@ -86,6 +94,8 @@ const TextToText = () => {
       navigate('/');
     };
 
+
+
     return (
       <Form
         form={form}
@@ -115,6 +125,35 @@ const TextToText = () => {
         </Form.Item>
         <Form.Item>
           <Space>
+            <Select defaultValue={lang} style={{ width: 150}} onChange={handleChange}
+              options={[
+                { value: 'English', label: 'English' },
+                { value: 'Hindi', label: 'Hindi' },
+                { value: 'Spanish', label: 'Spanish' },
+                { value: 'German', label: 'German' },
+                { value: 'Arabic', label: 'Arabic' },
+                { value: 'Italian', label: 'Italian' },
+                { value: 'Indonesian', label: 'Indonesian' },
+                { value: 'Telugu', label: 'Telugu' },
+                { value: 'Dutch', label: 'Dutch' },
+                { value: 'Portuguese', label: 'Portuguese' },
+                { value: 'Japanese', label: 'Japanese' },
+                { value: 'Korean', label: 'Korean' },
+                { value: 'Turkish', label: 'Turkish' },
+                { value: 'Urdu', label: 'Urdu' },
+                { value: 'Gujarati', label: 'Gujarati' },
+                { value: 'Vietnamese', label: 'Vietnamese' },
+                { value: 'French', label: 'French' },
+                { value: 'Russian', label: 'Russian' },
+                { value: 'Bengali', label: 'Bengali' },
+                { value: 'Mandarin Chinese', label: 'Mandarin Chinese' },
+                { value: 'Tamil', label: 'Tamil' },
+                { value: 'Marathi', label: 'Marathi' },
+                { value: 'Hungarian', label: 'Hungarian' },
+              ]}
+            />
+          </Space>
+          <Space style={{ float: 'right' }}>
             <Button className="buttonGenText" type='primary' htmlType="submit" onClick={scrollToDiv}>
               Generate Prompt
             </Button>

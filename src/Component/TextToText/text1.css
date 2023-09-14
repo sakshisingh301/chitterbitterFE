@@ -31,6 +31,7 @@
     font-size: 15px;
     border-color: #bccaff;
   }
+
   .copyPromptBtnText{
     background-color: #253a78;
     color: rgb(255, 255, 255);
@@ -113,4 +114,13 @@
     border-radius: 10px;
     background-color: #2c4e6a;
     padding: 3em;
+}
+.ant-select-selector{
+  background-color: #253a78 !important;
+    color: rgb(255, 255, 255) !important;
+    font-size: 15px !important;
+    border-color: #bccaff !important;
+}
+.ant-select .ant-select-arrow{
+  color: rgb(255, 255, 255);
 }

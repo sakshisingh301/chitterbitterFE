@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext  } from 'react';
 import axios from 'axios';
 
 
-export const promptsService = async (event) => {
+export const promptsService = async (event, lang) => {
  
 
   
@@ -13,7 +13,7 @@ export const promptsService = async (event) => {
       subCategory: "",
       inputText: event.UseCase,
       userId: "6437ee95d90f4e73c32fa281",
-      lang: "",
+      lang: lang,
       isSafeMode: true
     };
     const response = await axios.post(apiUrl , requestBody);
