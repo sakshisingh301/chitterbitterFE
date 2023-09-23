@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import Header from '../Header';
-import { Button, Form, message, Space, Spin } from 'antd';
+import { Button, Form, message, Space, Image, Skeleton } from 'antd';
 import './image.css'
 import TextArea from 'antd/es/input/TextArea';
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +10,7 @@ import Bread from '../BreadCrump';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { saveAs } from 'file-saver'
 
 const bgImgStyle = {
   backgroundImage:
@@ -26,10 +27,77 @@ const fetchDataFromService = async (event) => {
     throw error;
   }
 };
-const Image = () => {
+const ImageComponent = () => {
   const [isImageGenerated, setIsImageGenerated] = useState(false);
   const [responseData, setResponseData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [scaleStep, setScaleStep] = useState(0.5);
+
+//   const downloadImageLocal = (res) => {
+//     console.log(res)
+//     var data = new Blob([res], {type: 'image/jpeg'});
+// var csvURL = window.URL.createObjectURL(data);
+// var tempLink = document.createElement('a');
+// tempLink.href = csvURL;
+// tempLink.setAttribute('download', 'filename.jpeg');
+// tempLink.click();
+//   }
+
+const downloadImageLocal = (imageUrl) => {
+ console.log(imageUrl);
+  fetch(imageUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch image (${response.status})`);
+      }
+      return response.blob();
+    })
+    .then((blob) => {
+      const url = window.URL.createObjectURL(blob);
+      const tempLink = document.createElement('a');
+      tempLink.href = url;
+      tempLink.setAttribute('download', 'image.jpg'); // Set the download filename to 'image.jpg'
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      document.body.removeChild(tempLink);
+    })
+    .catch((error) => {
+      console.error('Error downloading image:', error);
+    });
+};
+
+
+
+ 
+
+
+const onViewImage = () => {
+  console.log(responseData)
+    if (responseData) {
+      console.log('come here')
+      setVisible(true);
+      <Image
+        width={200}
+        style={{
+          display: 'none',
+        }}
+        preview={{
+          visible,
+          scaleStep,
+          src: responseData,
+          onVisibilityChange: (value) => {
+            console.log('visibile = ', value)
+            setVisible(value);
+          }
+        }}
+      />
+    }
+  };
+
+ 
+ 
+  
 
   const RenderForm = () => {
     const [form] = Form.useForm();
@@ -58,6 +126,8 @@ const Image = () => {
     const onCancel = () => {
       navigate('/');
     };
+
+  
 
     return (
       <Form
@@ -101,6 +171,7 @@ const Image = () => {
       </Form>
     );
   };
+  
   return (
     <div className='bgImage' style={bgImgStyle}>
       <div>
@@ -112,13 +183,18 @@ const Image = () => {
         </div>
         <div className='headingImage'> Text to Image generator</div>
         <div className='heading2Image'>Simply enter your text and watch the magic happen—our gizmo turns words into beautiful images!</div>
-        <Spin style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }} tip="Loading" size="large" spinning={isLoading}>
+        {/* <Spin style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }} tip="Loading" size="large" spinning={isLoading}>
           <div className="content" />
-        </Spin>
+        </Spin> */}
         <div className='borderImage'>
           <RenderForm />
         </div>
-        {isImageGenerated && (
+        {isLoading && (<div className='skeletonCssImage'>
+          <Skeleton loading={isLoading} active avatar>
+          </Skeleton>
+        </div>
+        )}
+        {isImageGenerated && !isLoading && (
           <div className='promptResultImage'>
             <h2 style={{ marginLeft: '10px', color: 'aliceblue' }}>Image:</h2>
             <hr className='hrCSS' />
@@ -127,13 +203,37 @@ const Image = () => {
               Image summary
               </div>
               <div>
-            <Button  type='primary'>
+              <Button type='primary' onClick={() => setVisible(true)}>
               View Image
             </Button> &nbsp;
-            <Button htmlType="button" >
-              <FontAwesomeIcon icon={faDownload} size='xl' />
-              &nbsp;Download Image
-            </Button>
+            <Button
+  htmlType="button"
+  onClick={() => {
+    console.log('Download Image button clicked');
+    downloadImageLocal({responseData});
+  }}
+>
+  <FontAwesomeIcon icon={faDownload} size='xl' />
+  &nbsp;Download Image
+</Button>
+
+
+
+            <Image
+        width={200}
+        style={{
+          display: 'none',
+        }}
+        preview={{
+          visible,
+          scaleStep,
+          src: responseData,
+          onVisibleChange: (value) => {
+            console.log('visibile = ', responseData)
+            setVisible(value);
+          }
+        }}
+      />
               {/* <img src={responseData} alt="Generated Image" /> */}
               {/* <iframe src={responseData} height="200" width="300" title="Generated image"></iframe> */}
 
@@ -144,4 +244,4 @@ const Image = () => {
     </div>)
 
 }
-export default Image;
+export default ImageComponent;
