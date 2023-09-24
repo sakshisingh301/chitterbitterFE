@@ -15,13 +15,15 @@ import { saveAs } from 'file-saver'
 const bgImgStyle = {
   backgroundImage:
     "url('https://media.istockphoto.com/id/1423605865/photo/india-at-night-viewed-from-space-with-city-lights-showing-activity-in-indian-cities-delhi.webp?b=1&s=170667a&w=0&k=20&c=9qLJlUTDiRqDq9aOSgGSGDJD9aA2j2rMJ4Tb1Can4i4=')",
-  height: '50em',
+  // height: '50em',
+  position: 'absolute',
   backgroundSize: 'cover',
 };
 
 const fetchDataFromService = async (event) => {
   try {
     const response = await imageGeneration(event);
+    console.log(response)
     if (response.status === 200) return response.data;
   } catch (error) {
     throw error;
@@ -33,16 +35,8 @@ const ImageComponent = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState(false);
   const [scaleStep, setScaleStep] = useState(0.5);
+  const [description, setDescription] = useState(false);
 
-//   const downloadImageLocal = (res) => {
-//     console.log(res)
-//     var data = new Blob([res], {type: 'image/jpeg'});
-// var csvURL = window.URL.createObjectURL(data);
-// var tempLink = document.createElement('a');
-// tempLink.href = csvURL;
-// tempLink.setAttribute('download', 'filename.jpeg');
-// tempLink.click();
-//   }
 
 const downloadImageLocal = (imageUrl) => {
  console.log(imageUrl);
@@ -111,6 +105,7 @@ const onViewImage = () => {
       setIsImageGenerated(true);
       setResponseData(result.imageUrl);
       setIsLoading(false);
+      setDescription(result.description);
 
 
 
@@ -201,9 +196,14 @@ const onViewImage = () => {
             <br />
             <div style={{ marginLeft: '10px', color: 'aliceblue', marginBottom: '10px' }}>
               Image summary
+
+              <div  style={{ marginLeft: '10px', color: 'aliceblue', marginBottom: '10px',marginTop:'12px' }}>
+          
+              {description}
+              </div>
               </div>
               <div>
-              <Button type='primary' onClick={() => setVisible(true)}>
+              <Button type='primary' onClick={() => setVisible(true)} className='viewImageButton'>
               View Image
             </Button> &nbsp;
             <Button
@@ -211,9 +211,9 @@ const onViewImage = () => {
   onClick={() => {
     console.log('Download Image button clicked');
     downloadImageLocal({responseData});
-  }}
+  }} className='downloadImageButton'
 >
-  <FontAwesomeIcon icon={faDownload} size='xl' />
+  <FontAwesomeIcon icon={faDownload} size='l' />
   &nbsp;Download Image
 </Button>
 

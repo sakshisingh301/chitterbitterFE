@@ -11,11 +11,10 @@
   }
   .promptResultImage{
     /* display: flex; */
-        margin: 10em;
+    margin: 10em 10em 0em 10em;
         /* justify-content: center; */
         border: 3px solid rgba(0, 0, 0, 0.6);
         border-radius: 1em;
-        margin-top: -75px;
         background-color: #2c4e6a;
         /* display: flex; */
         
@@ -41,6 +40,7 @@
     color: rgb(255, 255, 255);
     font-size: 15px;
     border-color: #bccaff;
+    margin-left: 1em;
   }
   .headImage{
     background-color: lightseagreen;
@@ -78,3 +78,17 @@
     border: 1px solid rgba(168, 168, 168, 0.3);
     margin-top: 1.5em;
   }
+  .viewImageButton{
+    margin: 1em;
+    background-color: #253a78;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    border-color: #bccaff;
+  }
+  .downloadImageButton{
+    background-color: #253a78;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    border-color: #bccaff;
+  }
+
